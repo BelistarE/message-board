@@ -4,19 +4,25 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%= title %></title>
+    <link rel="stylesheet" href="public/css/style.css" />
   </head>
   <body>
-    <h1><%= title %></h1>
-
-    <ul>
-      <% messages.forEach(function(message) { %>
-      <li>
-        <strong><%= message.user %></strong> said: <%= message.text %>
-        <em>(<%= message.added.toLocaleString() %>)</em>
-      </li>
-      <% }); %>
-    </ul>
-
-    <a href="/new">Add a New Message</a>
+    <canvas id="heartCanvas"></canvas>
+    <div class="content">
+      <h1><%= title %></h1>
+      <a href="/new">Add a New Message</a>
+      <ul>
+        <% messages.forEach(function(message) { %>
+        <li>
+          <strong style="color: <%= message.color %>">
+            <%=`${message.user}:` %>
+          </strong>
+          <%= message.text %>
+          <em>(<%= message.added.toLocaleString() %>)</em>
+        </li>
+        <% }); %>
+      </ul>
+    </div>
+    <script src="/public/js/particles.js"></script>
   </body>
 </html>

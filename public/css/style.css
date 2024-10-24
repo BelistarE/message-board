@@ -1,0 +1,98 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap");
+body {
+  font-family: "Roboto Mono", monospace;
+  background-image: url("/public/images/1327980.png");
+  background-size: cover;
+  background-attachment: fixed;
+  padding: 0px;
+  margin: 0px;
+}
+
+h1 {
+  color: #333;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+ul li {
+  background-color: #f4f4f4;
+  margin: 5px 0;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+a {
+  text-decoration: none;
+  color: blue;
+}
+
+form input,
+form textarea {
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.forminput {
+  display: flex;
+  flex-direction: column;
+}
+/* new */
+.textform {
+  display: flex;
+  flex-direction: column;
+}
+
+.top {
+  display: flex;
+}
+.section {
+  display: flex;
+  flex-direction: column;
+}
+.content {
+  margin-left: 10%;
+  margin-right: 10%;
+  background-color: rgba(121, 121, 121, 0.5);
+  backdrop-filter: blur(20px);
+  height: 100vh;
+  padding: 5%;
+  padding-top: 2%;
+}
+h1 {
+  box-sizing: border-box;
+  margin: 0px;
+}
+.form {
+  padding: 10%;
+  box-sizing: border-box;
+  height: calc(100vh - 20px);
+  margin: 10px;
+}
+form {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 5%;
+}
+
+#heartCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+}

@@ -7,10 +7,17 @@ const PORT = process.env.PORT || 3000;
 // To parse form data from POST requests
 app.use(express.urlencoded({ extended: true }));
 
-// Sample data to represent existing messages
+// Serve static files from the 'public' folder
+app.use("/public", express.static(path.join(__dirname, "public")));
+
+// Sample data
 let messages = [
-  { text: "Hello, world!", user: "John Doe", added: new Date() },
-  { text: "Hi, everyone!", user: "Jane Doe", added: new Date() },
+  {
+    text: "Hello, world!",
+    user: "Console",
+    added: new Date(),
+    color: "#34914a",
+  },
 ];
 
 // Set the view engine to EJS
@@ -19,7 +26,7 @@ app.set("view engine", "ejs");
 
 // Index route - displays messages
 app.get("/", (req, res) => {
-  res.render("index", { title: "Mini Message Board", messages });
+  res.render("index", { title: "Beli's Message Board", messages });
 });
 
 // Route to render the form for adding a new message
@@ -27,11 +34,16 @@ app.get("/new", (req, res) => {
   res.render("new", { title: "New Message" });
 });
 
-// Route to handle form submission and add the new message
 app.post("/new", (req, res) => {
-  const { messageText, messageUser } = req.body;
-  if (messageText && messageUser) {
-    messages.push({ text: messageText, user: messageUser, added: new Date() });
+  const { messageText, messageUser, color } = req.body;
+  if (messageText && messageUser && color) {
+    // Add the new message to the beginning of the array with the selected color
+    messages.unshift({
+      text: messageText,
+      user: messageUser,
+      color: color,
+      added: new Date(),
+    });
   }
   res.redirect("/");
 });
