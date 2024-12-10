@@ -2,13 +2,15 @@ const express = require("express");
 const path = require("path");
 
 const app = express();
+
 const PORT = process.env.PORT || 3000;
 
 // To parse form data from POST requests
 app.use(express.urlencoded({ extended: true }));
 
 // Serve static files from the 'public' folder
-app.use("/public", express.static(path.join(__dirname, "public")));
+app.set("views", path.join(__dirname, "views"));
+app.set("view engine", "ejs");
 
 // Sample data
 let messages = [
@@ -47,7 +49,7 @@ app.post("/new", (req, res) => {
   }
   res.redirect("/");
 });
-
+app.use("/public", express.static(path.join(__dirname, "public")));
 // Start the server
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);

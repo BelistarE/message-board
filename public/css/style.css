@@ -96,3 +96,33 @@ form {
   height: 100vh;
   z-index: -1;
 }
+
+.settings-button {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.settings-button img {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  opacity: 0.8;
+}
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 50px;
+  right: 0;
+  background-color: white;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+.dropdown-menu a {
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  color: black;
+}
+.dropdown-menu a:hover {
+  background-color: #f1f1f1;
+}

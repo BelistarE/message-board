@@ -9,6 +9,18 @@
   <body>
     <canvas id="heartCanvas"></canvas>
     <div class="content">
+      <div class="settings-button">
+        <img
+          src="public/images/icons/settings.svg"
+          alt="Settings"
+          id="settingsIcon"
+        />
+        <div class="dropdown-menu" id="dropdownMenu">
+          <a href="/profile">Profile</a>
+          <a href="/settings">Settings</a>
+          <a href="/logout">Logout</a>
+        </div>
+      </div>
       <h1><%= title %></h1>
       <a href="/new">Add a New Message</a>
       <ul>
@@ -24,5 +36,6 @@
       </ul>
     </div>
     <script src="/public/js/particles.js"></script>
+    <script src="/public/js/main-script.js"></script>
   </body>
 </html>
