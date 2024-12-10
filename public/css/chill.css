@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap");
 body {
   font-family: "Roboto Mono", monospace;
-  background-image: url("/public/images/1327980.png");
+  background-image: url("/images/1327980.png");
   background-size: cover;
   background-attachment: fixed;
   padding: 0px;

@@ -8,7 +8,7 @@ const PORT = process.env.PORT || 3000;
 // To parse form data from POST requests
 app.use(express.urlencoded({ extended: true }));
 
-// Serve static files from the 'public' folder
+// Set the view engine to EJS
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
@@ -22,12 +22,14 @@ let messages = [
   },
 ];
 
-// Set the view engine to EJS
-app.set("views", path.join(__dirname, "views"));
-app.set("view engine", "ejs");
+// Middleware to handle theme selection
+app.use((req, res, next) => {
+  res.locals.theme = req.params.theme || "chill";
+  next();
+});
 
 // Index route - displays messages
-app.get("/", (req, res) => {
+app.get(["/", "/theme/:theme"], (req, res) => {
   res.render("index", { title: "Beli's Message Board", messages });
 });
 
@@ -49,7 +51,10 @@ app.post("/new", (req, res) => {
   }
   res.redirect("/");
 });
-app.use("/public", express.static(path.join(__dirname, "public")));
+
+// Serve static files from the 'public' folder
+app.use(express.static(path.join(__dirname, "public")));
+
 // Start the server
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);

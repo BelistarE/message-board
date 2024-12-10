@@ -4,21 +4,24 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%= title %></title>
-    <link rel="stylesheet" href="public/css/style.css" />
+    <% if (theme) { %>
+    <link rel="stylesheet" href="/css/<%= theme %>.css" />
+    <% } %>
   </head>
   <body>
     <canvas id="heartCanvas"></canvas>
     <div class="content">
       <div class="settings-button">
         <img
-          src="public/images/icons/settings.svg"
+          src="/images/icons/settings.svg"
           alt="Settings"
           id="settingsIcon"
         />
         <div class="dropdown-menu" id="dropdownMenu">
-          <a href="/profile">Profile</a>
-          <a href="/settings">Settings</a>
-          <a href="/logout">Logout</a>
+          <p>Theme</p>
+          <a href="/theme/hacker">Hacker</a>
+          <a href="/theme/counter-strike">Counter Strike</a>
+          <a href="/theme/chill">Chill</a>
         </div>
       </div>
       <h1><%= title %></h1>
@@ -35,7 +38,7 @@
         <% }); %>
       </ul>
     </div>
-    <script src="/public/js/particles.js"></script>
-    <script src="/public/js/main-script.js"></script>
+    <script src="/js/particles.js"></script>
+    <script src="/js/main-script.js"></script>
   </body>
 </html>
