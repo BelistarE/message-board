@@ -1,4 +1,6 @@
-<link rel="stylesheet" href="/css/style.css" />
+<% if (theme) { %>
+<link rel="stylesheet" href="/css/<%= theme %>.css" />
+<% } %>
 <div class="form">
   <form action="/new" method="POST" class="forminput textform">
     <div class="top">
@@ -14,7 +16,18 @@
     </div>
     <label for="messageText">Message:</label>
     <textarea id="messageText" name="messageText" required></textarea>
-
+    <div class="error-message" id="errorMessage">
+      Message cannot exceed 256 characters.
+    </div>
+    <div class="divider"></div>
+    <div class="preview">
+      <p>Preview:</p>
+      <div class="preview-contents individual">
+        <strong style="color: red"> beli: </strong>
+        <em>hey this is my message!</em>
+      </div>
+    </div>
     <button type="submit">Submit</button>
   </form>
 </div>
+<script src="/js/new-message-script.js"></script>

@@ -1,4 +1,5 @@
 const express = require("express");
+const fs = require("fs");
 const path = require("path");
 
 const app = express();
@@ -24,7 +25,9 @@ let messages = [
 
 // Middleware to handle theme selection
 app.use((req, res, next) => {
-  res.locals.theme = req.params.theme || "chill";
+  // Check if the request matches the '/theme/:theme' route
+  const themeMatch = req.path.match(/^\/theme\/([^/]+)/);
+  res.locals.theme = themeMatch ? themeMatch[1] : "chill"; // Extract theme if it exists, otherwise use 'chill'
   next();
 });
 

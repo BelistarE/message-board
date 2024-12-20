@@ -1,4 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap");
+p {
+  margin-block-start: 0em;
+  margin-block-end: 0em;
+}
 body {
   font-family: "Roboto Mono", monospace;
   background-image: url("/images/1327980.png");
@@ -17,7 +21,7 @@ ul {
   padding: 0;
 }
 
-ul li {
+.individual {
   background-color: #f4f4f4;
   margin: 5px 0;
   padding: 10px;
@@ -26,7 +30,7 @@ ul li {
 
 a {
   text-decoration: none;
-  color: blue;
+  color: #3f3b4f;
 }
 
 form input,
@@ -56,7 +60,23 @@ button {
   display: flex;
   flex-direction: column;
 }
-
+.new {
+  border-radius: 0.2rem;
+  border: 0.1rem solid #3f3b4f;
+  padding: 0.3rem;
+  background-color: #d59096;
+  box-shadow: 0 0px 16px rgba(0, 0, 0, 0.2);
+  width: fit-content;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.new:hover {
+  background-color: #eebca1;
+  transition: background-color 0.3s ease;
+}
+.divider {
+  border-top: 2px solid #333;
+}
 .top {
   display: flex;
 }
@@ -70,22 +90,35 @@ button {
   background-color: rgba(121, 121, 121, 0.5);
   backdrop-filter: blur(20px);
   height: 100vh;
-  padding: 5%;
-  padding-top: 2%;
+  display: flex;
+  flex-direction: column;
+  padding-left: 5%;
+  padding-right: 5%;
+}
+#color {
+  height: 100%;
+  width: 20%;
+  padding: 0.05rem;
 }
 h1 {
   box-sizing: border-box;
   margin: 0px;
 }
 .form {
-  padding: 10%;
-  box-sizing: border-box;
-  height: calc(100vh - 20px);
-  margin: 10px;
+  margin-left: 10%;
+  margin-right: 10%;
+  background-color: rgba(121, 121, 121, 0.5);
+  backdrop-filter: blur(20px);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding-left: 5%;
+  padding-right: 5%;
 }
 form {
-  background-color: rgba(0, 0, 0, 0.5);
-  padding: 5%;
+  margin-top: 2%;
+  display: flex;
+  flex-direction: column;
 }
 
 #heartCanvas {
@@ -102,12 +135,6 @@ form {
   justify-content: flex-end;
 }
 
-.settings-button img {
-  width: 24px;
-  height: 24px;
-  cursor: pointer;
-  opacity: 0.8;
-}
 .dropdown-menu {
   display: none;
   position: absolute;
@@ -125,4 +152,21 @@ form {
 }
 .dropdown-menu a:hover {
   background-color: #f1f1f1;
+}
+.no-scroll {
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  padding-top: 2%;
+}
+.preview {
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+#messageText {
+  margin-bottom: 2px;
+}
+
+#settingsIcon {
+  cursor: pointer;
 }
