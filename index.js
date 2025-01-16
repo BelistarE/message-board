@@ -36,13 +36,15 @@ app.get(["/", "/theme/:theme"], (req, res) => {
   res.render("index", { title: "Beli's Message Board", messages });
 });
 
-// Route to render the form for adding a new message
-app.get("/new", (req, res) => {
-  res.render("new", { title: "New Message" });
+// Route to render the form for adding a new message with theme
+app.get("/new/:theme", (req, res) => {
+  const { theme } = req.params;
+  res.render("new", { title: "New Message", theme });
 });
 
-app.post("/new", (req, res) => {
+app.post("/new/:theme", (req, res) => {
   const { messageText, messageUser, color } = req.body;
+  const { theme } = req.params;
   if (messageText && messageUser && color) {
     // Add the new message to the beginning of the array with the selected color
     messages.unshift({
@@ -52,7 +54,7 @@ app.post("/new", (req, res) => {
       added: new Date(),
     });
   }
-  res.redirect("/");
+  res.redirect(`/theme/${theme}`);
 });
 
 // Serve static files from the 'public' folder

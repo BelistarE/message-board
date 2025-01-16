@@ -1,3 +1,7 @@
+window.addEventListener("load", () => {
+  const loadingScreen = document.getElementById("loadingScreen");
+  loadingScreen.classList.add("hidden");
+});
 document.addEventListener("DOMContentLoaded", () => {
   const iconContainer = document.getElementById("settingsIcon");
   const dropdownMenu = document.getElementById("dropdownMenu");

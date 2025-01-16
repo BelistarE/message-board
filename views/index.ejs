@@ -9,6 +9,9 @@
     <% } %>
   </head>
   <body>
+    <div id="loadingScreen">
+      <p>Loading...</p>
+    </div>
     <canvas id="heartCanvas"></canvas>
     <div class="content">
       <div class="no-scroll">
@@ -65,7 +68,7 @@
           </div>
         </div>
         <h1 id="title">Beli's Message Board</h1>
-        <a href="/new" class="new">Add a New Message</a>
+        <a href="/new/<%= theme %>" class="new">Add a New Message</a>
         <div class="divider"></div>
       </div>
 
